@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\AdvertisingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('advertising.index');
 });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::controller(AdvertisingController::class)
+        ->prefix('advertising')
+        ->group(function () {
+            Route::get('/', 'index')->name('advertising.index');
+            Route::get('/create', 'create')->name('advertising.create');
+            Route::post('/', 'store')->name('advertising.store');
+        });
+});
+
