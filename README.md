@@ -45,8 +45,24 @@ komutunu kullanabilirsiniz.
 ## API Rotalar
 
 - POST => localhost:8080/api/login
+- email
+- password
+
+
 - GET => localhost:8080/api/advertising
+- platform: "Tiktok",
+- start_date: "01-10-2023"
+- end_date: "30-10-2023"
+
+
 - POST => localhost:8080/api/advertising
+- platform:"Tiktok",
+- impressions:10
+- clicks:15
+- spend:100
+- revenue:20
+
+
 
 Öncelikle web rotası üzerinden register olmanız gereklidir.
 Sonrasında api/login tarafında istek atıp dönüş aldığınız token değerini bearer token olarak diğer api rotalarına istek atmanız gereklidir.
